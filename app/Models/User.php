@@ -20,6 +20,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'amount',
+        'role',
         'password',
     ];
 
@@ -42,4 +44,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function transitionHistories()
+    {
+        return $this->hasMany(TransitionHistory::class);
+    }
+
+    public function transitionsFrom()
+    {
+        return $this->hasMany(TransitionHistory::class, 'from');
+    }
+
+    public function transitionsTo()
+    {
+        return $this->hasMany(TransitionHistory::class, 'to');
+    }
 }
