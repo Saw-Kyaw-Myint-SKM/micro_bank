@@ -20,6 +20,11 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center space-x-4 sm:ms-6">
+                <div class="hidden h-16 sm:flex mr-1">
+                    <x-nav-link :href="route('transfer.create')" :active="request()->routeIs('transfer.create')" class="text-md text-gray-400">
+                        {{ __('Transfer') }}
+                    </x-nav-link>
+                </div>
                 <div class="hidden h-16 sm:flex mr-4  px-4">
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')" class="text-md text-gray-400">
                         {{ __('users') }}
