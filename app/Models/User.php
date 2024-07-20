@@ -60,4 +60,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(TransitionHistory::class, 'to');
     }
+
+    public function isAdmin()
+    {
+        return $this->role == 1;
+    }
+
+    public function isUser()
+    {
+        return $this->role == 0;
+    }
 }

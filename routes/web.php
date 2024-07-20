@@ -22,19 +22,20 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/platform', function () {
-    return view('platform');
-})->middleware(['auth', 'verified'])->name('platform');
+})->middleware(['auth', 'verified', 'checkrole:0'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     Route::get('/transfer', [TransitionHistoryController::class, 'create'])->name('transfer.create');
+});
+
+Route::middleware(['auth', 'checkrole:1'])->group(function () {
+    Route::get('/platform', function () {
+        return view('platform');
+    })->middleware(['auth', 'verified'])->name('platform');
 });
 
 require __DIR__ . '/auth.php';
