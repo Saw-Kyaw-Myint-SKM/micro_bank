@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/transfer', [TransitionHistoryController::class, 'create'])->name('transfer.create');
 });
 
-Route::middleware(['auth', 'checkrole:1'])->group(function () {
+Route::middleware(['auth', 'verified', 'checkrole:1'])->group(function () {
     Route::get('/platform', function () {
         return view('platform');
     })->middleware(['auth', 'verified'])->name('platform');

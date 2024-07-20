@@ -20,14 +20,14 @@
                     <div class="flex justify-center items-center space-x-10 mt-6">
                         <div>
                             <div
-                                class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:shadow-lg hover:border-2">
+                                class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:border-2">
                                 <x-transfer-svg class="h-20 w-20" />
                             </div>
                             <p class="text-center mt-1 text-gray-600 font-serif">Transfer</p>
                         </div>
                         <div>
                             <div
-                                class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:shadow-lg hover:border-2">
+                                class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:border-2">
                                 <x-transfer-history-svg class="h-20 w-20" />
                             </div>
                             <p class="text-center mt-1 text-gray-600 font-serif">Transfer History</p>
