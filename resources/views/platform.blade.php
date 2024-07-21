@@ -5,14 +5,14 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12" x-data="platform">
         <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="mb-4">
                         <div class="flex items-center justify-between text-lg mb-3">
                             <p class="font-semibold text-blue-500">Balance (Ks)</p>
-                            <p>1 USD = 3036 MMK</p>
+                            <p>1 USD = <span>{{ $usdToMmkRate }}</span> MMK</p>
                         </div>
                         <p class="font-bold text-4xl text-gray-600 font-sans">{{ number_format($user->amount) }}</p>
                     </div>
@@ -41,4 +41,13 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('platform', () => ({
+
+                }))
+            })
+        </script>
+    @endpush
 </x-app-layout>

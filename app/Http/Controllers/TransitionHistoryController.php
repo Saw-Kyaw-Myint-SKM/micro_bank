@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TransitionHistory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class TransitionHistoryController extends Controller
 {
@@ -12,8 +13,22 @@ class TransitionHistoryController extends Controller
      */
     public function index()
     {
+        try {
+            $response = Http::get('http://forex.cbm.gov.mm/api/latest');
+            if ($response->successful()) {
+                $data = $response->json();
+                $usdToMmkRate = $data['rates']['USD'] ?? 'Rate not available';
+            } else {
+                return response()->json(['error' => 'Failed to fetch data'], $response->status());
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
         $user = auth()->user();
-        return view('platform', ['user' => $user]);
+        return view('platform', [
+            'user' => $user,
+            'usdToMmkRate' => $usdToMmkRate,
+        ]);
     }
 
     /**
