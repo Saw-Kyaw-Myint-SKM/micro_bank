@@ -14,23 +14,27 @@
                             <p class="font-semibold text-blue-500">Balance (Ks)</p>
                             <p>1 USD = 3036 MMK</p>
                         </div>
-                        <p class="font-bold text-4xl text-gray-600 font-sans">123000</p>
+                        <p class="font-bold text-4xl text-gray-600 font-sans">{{ number_format($user->amount) }}</p>
                     </div>
                     <hr>
                     <div class="flex justify-center items-center space-x-10 mt-6">
                         <div>
-                            <div
-                                class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:border-2">
-                                <x-transfer-svg class="h-20 w-20" />
-                            </div>
-                            <p class="text-center mt-1 text-gray-600 font-serif">Transfer</p>
+                            <a href="{{ route('transfer.create') }}">
+                                <div
+                                    class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:border-2">
+                                    <x-transfer-svg class="h-20 w-20" />
+                                </div>
+                                <p class="text-center mt-1 text-gray-600 font-serif">Transfer</p>
+                            </a>
                         </div>
                         <div>
-                            <div
-                                class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:border-2">
-                                <x-transfer-history-svg class="h-20 w-20" />
-                            </div>
-                            <p class="text-center mt-1 text-gray-600 font-serif">Transfer History</p>
+                            <a href="{{ route('transition.history') }}">
+                                <div
+                                    class="border border-gray-300 w-40 h-40 flex shadow-md bg-gray-50 items-center justify-center hover:bg-gray-100 hover:border-2">
+                                    <x-transfer-history-svg class="h-20 w-20" />
+                                </div>
+                                <p class="text-center mt-1 text-gray-600 font-serif">Transfer History</p>
+                            </a>
                         </div>
                     </div>
                 </div>

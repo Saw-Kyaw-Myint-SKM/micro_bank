@@ -27,15 +27,14 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+    Route::get('/transition-history', [TransitionHistoryController::class, 'history'])->name('transition.history');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/transfer', [TransitionHistoryController::class, 'create'])->name('transfer.create');
 });
 
 Route::middleware(['auth', 'verified', 'checkrole:1'])->group(function () {
-    Route::get('/platform', function () {
-        return view('platform');
-    })->middleware(['auth', 'verified'])->name('platform');
+    Route::get('/platform', [TransitionHistoryController::class, 'index'])->name('platform');
 });
 
 require __DIR__ . '/auth.php';

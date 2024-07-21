@@ -32,8 +32,8 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden h-16 sm:flex mr-4  px-4">
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')" class="text-md text-gray-400">
-                        {{ __('users') }}
+                    <x-nav-link :href="route('transition.history')" :active="request()->routeIs('transition.history')" class="text-md text-gray-400">
+                        {{ __('Transition') }}
                     </x-nav-link>
                 </div>
                 <x-dropdown align="right" width="48">

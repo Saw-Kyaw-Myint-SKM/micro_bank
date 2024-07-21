@@ -12,7 +12,17 @@ class TransitionHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        return view('platform', ['user' => $user]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function history()
+    {
+        $transitionHistory = TransitionHistory::latest('id')->get();
+        return view('page.transition-history', ['transitionHistory' => $transitionHistory]);
     }
 
     /**
