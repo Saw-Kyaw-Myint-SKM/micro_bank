@@ -14,7 +14,8 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
     socket.on("updateTransition", (message) => {
-        if (message === "reloadTransfer") {
+        console.log("message", message);
+        if (message === "reloadTransition") {
             socket.broadcast.emit("updateTransition");
         }
     });

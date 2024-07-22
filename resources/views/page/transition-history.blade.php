@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12" x-data="transitionHistory">
         @foreach (['saw', 'kyaw', 'myint'] as $user)
             <div class="max-w-5xl mx-auto sm:px-6 lg:px-12 mb-4">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -39,4 +39,18 @@
             </div>
         @endforeach
     </div>
+    @push('scripts')
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('transitionHistory', () => ({
+                    init() {
+                        socket.on('updateTransition', data => {
+                            alert('data')
+                            console.log('updatetransitions')
+                        });
+                    }
+                }))
+            })
+        </script>
+    @endpush
 </x-app-layout>

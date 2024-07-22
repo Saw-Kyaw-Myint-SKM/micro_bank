@@ -46,20 +46,4 @@
             </x-primary-button>
         </div>
     </form>
-    @push('scripts')
-        <script>
-            // Enable pusher logging - don't include this in production
-            Pusher.logToConsole = true;
-
-            var pusher = new Pusher('935bcb87a3eb17ce4dc0', {
-                cluster: 'ap1'
-            });
-            console.log('hla');
-            var channel = pusher.subscribe('my-channel');
-            channel.bind('my-event', function(data) {
-                console.log('hla');
-                alert(JSON.stringify(data));
-            });
-        </script>
-    @endpush
 </x-guest-layout>

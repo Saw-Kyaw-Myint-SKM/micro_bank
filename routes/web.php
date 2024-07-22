@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/transfer', [TransitionHistoryController::class, 'create'])->name('transfer.create');
+    Route::post('/transition', [TransitionHistoryController::class, 'store'])->name('transition.store');
+    Route::post('/trasfer', [TransitionHistoryController::class, 'findPhone'])->name('find.phone');
 });
 
 Route::middleware(['auth', 'verified', 'checkrole:1'])->group(function () {
