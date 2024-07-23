@@ -37,8 +37,13 @@ class TransitionHistoryController extends Controller
      */
     public function history()
     {
-        $transitionHistory = TransitionHistory::latest('id')->get();
-        return view('page.transition-history', ['transitionHistory' => $transitionHistory]);
+        $transitionHistories = TransitionHistory::where('from', auth()->user()->id)
+            ->orWhere('to', auth()->user()->id)
+            ->with(['fromUser', 'toUser'])
+            ->latest('id')
+            ->get();
+        // dd($transitionHistories->toArray());
+        return view('page.transition-history', ['transitionHistories' => $transitionHistories]);
     }
 
     /**
