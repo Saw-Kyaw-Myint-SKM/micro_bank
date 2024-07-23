@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Events\MyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -18,7 +17,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        event(new MyEvent('hello world'));
         return view('auth.login');
     }
 
