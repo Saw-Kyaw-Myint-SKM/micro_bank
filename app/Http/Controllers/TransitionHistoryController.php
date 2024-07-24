@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAmountRequest;
 use App\Models\TransitionHistory;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class TransitionHistoryController extends Controller
 {
@@ -56,27 +59,38 @@ class TransitionHistoryController extends Controller
 
     public function findPhone(Request $request)
     {
-        $phone = $request->phone;
-        info($request);
-        $user = User::where('phone', $phone)->first();
-        info($user);
-        if ($user) {
+        // Define the validation rules
+        $rules = [
+            'phone' => ['required', 'numeric', 'regex:/^09\d{9}$/'],
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
             return response()->json([
-                'user' => $user,
-            ], 200);
-        } else {
-            return response()->json([
-                'message' => 'User not found',
-            ], 404);
+                'errors' => $validator->errors(),
+            ], 422);
         }
+
+        $phone = $request->phone;
+        $user = User::where('phone', $phone)->first();
+        if (!$user) {
+            return response()->json([
+                'errors' => [
+                    'phone' => 'User not found',
+                ],
+            ], 422);
+        }
+        return response()->json([
+            'user' => $user,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAmountRequest $request)
     {
-        info($request);
         $transition = TransitionHistory::create([
             'user_id' => auth()->user()->id,
             'from' => auth()->user()->id,
@@ -84,7 +98,13 @@ class TransitionHistoryController extends Controller
             'amount' => $request->amount,
             'note' => $request->note,
         ]);
-        info($transition);
+
+        $user = Auth::user();
+
+        $user->update([
+            'amount' => $user->amount - $transition->amount,
+        ]);
+
         return response()->json([
             'message' => 'Success Transition',
         ], 200);

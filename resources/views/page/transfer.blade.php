@@ -32,9 +32,9 @@
                                                 <x-input-label for="phone" :value="__('Phone')" />
                                                 <x-text-input id="phone" name="phone" type="text"
                                                     class="mt-1 block w-full" placeholder="Please enter phone number"
-                                                    required autofocus autocomplete="phone"
-                                                    x-model="findPhoneForm.phone" />
-                                                <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+                                                    autofocus autocomplete="phone" x-model="findPhoneForm.phone" />
+                                                <p class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-1"
+                                                    x-text="errors?.phone"></p>
                                             </div>
 
                                             <div class="flex gap-4 w-full  justify-end items-center">
@@ -71,10 +71,11 @@
                                     </div>
                                     <div>
                                         <x-input-label for="amount" :value="__('Amount')" />
-                                        <x-text-input id="amount" amount="amount" type="text"
-                                            class="mt-1 block w-full" required autofocus autocomplete="amount"
+                                        <x-text-input id="amount" amount="amount" type="number"
+                                            class="mt-1 block w-full" autofocus autocomplete="amount"
                                             placeholder="Enter Amount" x-model="transitionForm.amount" />
-                                        <x-input-error class="mt-2" :messages="$errors->get('amount')" />
+                                        <p class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-1"
+                                            x-text="errors?.amount"></p>
                                     </div>
                                     <div>
                                         <x-input-label for="note" :value="__('Note')" />
@@ -131,6 +132,7 @@
                             .catch(error => {
                                 if (error.response.status === 422) {
                                     this.errors = error.response.data.errors;
+                                    console.log(this.errors);
                                 }
                                 this.formProcessing = false;
                             });
@@ -148,8 +150,10 @@
                                 }
                             })
                             .catch(error => {
+                                console.log('errors', error)
                                 if (error.response.status === 422) {
-                                    this.errors = error.response.data.errors;
+                                    this.errors = error.response.data?.errors;
+                                    console.log('this error', this.errors)
                                 }
                                 this.formProcessing = false;
                             });

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('from')->constrained('users')->onDelete('cascade');
             $table->foreignId('to')->constrained('users')->onDelete('cascade');
             $table->bigInteger('amount');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
