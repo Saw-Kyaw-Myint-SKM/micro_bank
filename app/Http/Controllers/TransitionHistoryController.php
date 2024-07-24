@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAmountRequest;
+use App\Mail\TransitionMail;
 use App\Models\TransitionHistory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class TransitionHistoryController extends Controller
@@ -98,6 +100,15 @@ class TransitionHistoryController extends Controller
             'amount' => $request->amount,
             'note' => $request->note,
         ]);
+
+        $toUser = User::find($transition->to);
+        $mailData = [
+            'to_user_name' => $toUser->name,
+            'from_user_name' => auth()->user()->name,
+            'amount' => $transition->amount,
+            'note' => $transition->note,
+        ];
+        Mail::to($toUser->email)->send(new TransitionMail($mailData));
 
         $user = Auth::user();
 

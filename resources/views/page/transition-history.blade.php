@@ -37,7 +37,7 @@
                                 <div>
                                     <p class="font-semibold">Amount</p>
                                     <p class=" font-serif font-semibold text-gray-600">
-                                        {{ number_format($history->amount) }}</p>
+                                        {{ number_format($history->amount) }} Kyats</p>
                                 </div>
                                 {{-- <div class="ml-14">
                                     <button
