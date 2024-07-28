@@ -13,7 +13,8 @@
                         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-4 flex w-full justify-between text-gray-900 dark:text-gray-100">
                                 <div class="flex items-start justify-center">
-                                    <img src="{{ asset('images/dollor.png') }}" alt="dollor" class="h-20 w-20">
+                                    <img src="{{ asset('images/dollor.png') }}" alt="dollor"
+                                        class="md:h-20 md:w-20 h-16 w-16 md:mt-auto mt-3">
                                     <div class="ml-5 mt-2">
                                         @if (auth()->user()->id == $history->fromUser?->id)
                                             <p class="text-xl font-semibold text-gray-800">

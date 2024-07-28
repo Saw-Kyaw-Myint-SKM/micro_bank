@@ -117,6 +117,7 @@ class TransitionHistoryController extends Controller
         ]);
 
         return response()->json([
+            'transition' => $transition,
             'message' => 'Success Transition',
         ], 200);
     }

@@ -3,7 +3,7 @@
         <div
             class="bg-[url('https://miro.medium.com/v2/resize:fit:1400/1*MuqWhynTeTQCSQpNcfbA4Q.png')] bg-no-repeat bg-center bg-cover w-full h-[100vh] ">
             <div class="pt-52">
-                <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 px-2">
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <section class="p-7">
                             {{-- phone --}}
@@ -143,9 +143,12 @@
                             .then(response => {
                                 console.log('response', response);
                                 if (response.status == 200) {
+                                    console.log('response', response)
+                                    const transition = response.data.transition
                                     this.confirmPhone = true;
                                     socket.emit('updateTransition', 'reloadTransition');
-                                    window.location.href = "http://localhost:8000/transition-history";
+                                    window.location.href =
+                                        `http://localhost:8000/transition/${transition.id}`;
                                 }
                             })
                             .catch(error => {

@@ -1,0 +1,17 @@
+{
+    "name": "Micro Bank",
+    "short_name": "Micro Bank",
+    "start_url": "/",
+    "background_color": "#3b82f6",
+    "description": "Bank Management System",
+    "display": "standalone",
+    "theme_color": "#3b82f6",
+    "id": "?homescreen=1",
+    "icons": [
+        {
+            "src": "/images/logo/micro_bank.jpg",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        }
+    ]
+}

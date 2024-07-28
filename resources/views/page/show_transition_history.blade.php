@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div style="background-image: url('{{ asset('images/wallet_transfer.png') }}');"
-        class="bg-no-repeat bg-center bg-cover w-full h-[92vh] no-scrollf">
+        class="bg-no-repeat bg-center bg-cover w-full md:h-[92vh] h-[99vh] no-scrollf">
         <div class="pt-28 pb-5" x-data="transitionHistory">
             <div class="max-w-xl mx-auto sm:px-6 lg:px-12 mb-4">
                 <div class="bg-gray-100">
