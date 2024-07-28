@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
     <div style="background-image: url('{{ asset('images/wallet_transfer.png') }}');"
-        class="bg-no-repeat bg-center bg-cover w-full h-[100vh] no-scrollf">
-        <div class="pt-32" x-data="transitionHistory">
+        class="bg-no-repeat bg-center bg-cover w-full md:h-[90vh] h-[98vh] no-scrollf">
+        <div class="pt-32 h-full overflow-y-auto" x-data="transitionHistory">
             @foreach ($transitionHistories as $history)
                 <a href="{{ route('transition.show', $history->id) }}">
                     <div class="max-w-5xl mx-auto sm:px-6 lg:px-12 mb-4">
