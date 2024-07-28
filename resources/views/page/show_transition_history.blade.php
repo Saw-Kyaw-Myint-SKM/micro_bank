@@ -101,10 +101,10 @@
             document.addEventListener('alpine:init', () => {
                 Alpine.data('transitionHistory', () => ({
                     init() {
-                        socket.on('updateTransition', data => {
-                            alert('data')
-                            console.log('updatetransitions')
-                        });
+                        // socket.on('updateTransition', data => {
+                        //     alert('data')
+                        //     console.log('updatetransitions')
+                        // });
                     }
                 }))
             })
