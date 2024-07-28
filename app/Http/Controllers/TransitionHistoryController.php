@@ -124,9 +124,12 @@ class TransitionHistoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TransitionHistory $transitionHistory)
+    public function show($id)
     {
-        //
+        $transitionHistory = TransitionHistory::with(['fromUser', 'toUser'])->find($id);
+        return view('page.show_transition_history', [
+            'transitionHistory' => $transitionHistory,
+        ]);
     }
 
     /**

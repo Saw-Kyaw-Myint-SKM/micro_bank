@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'verified', 'checkrole:1'])->group(function () {
     Route::get('/platform', [TransitionHistoryController::class, 'index'])->name('platform');
+    Route::get('transition/{id}', [TransitionHistoryController::class, 'show'])->name('transition.show');
 });
 
 require __DIR__ . '/auth.php';
