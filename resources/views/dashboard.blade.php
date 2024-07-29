@@ -87,12 +87,12 @@
                     <div class="rounded-t mb-0 px-0 border-0">
                         <div class="flex flex-wrap items-center px-4 py-2">
                             <div class="relative w-full max-w-full flex-grow flex-1">
-                                <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Social Traffic</h3>
+                                <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">User Count</h3>
                             </div>
                             <div class="relative w-full max-w-full flex-grow flex-1 text-right">
-                                <button
+                                {{-- <button
                                     class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    type="button">See all</button>
+                                    type="button">See all</button> --}}
                             </div>
                         </div>
                         <div class="block w-full overflow-x-auto p-4">
@@ -108,13 +108,13 @@
                     <div class="rounded-t mb-0 px-0 border-0">
                         <div class="flex flex-wrap items-center px-4 py-2">
                             <div class="relative w-full max-w-full flex-grow flex-1">
-                                <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Recent Activities
+                                <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Transition Count
                                 </h3>
                             </div>
                             <div class="relative w-full max-w-full flex-grow flex-1 text-right">
-                                <button
+                                {{-- <button
                                     class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    type="button">See all</button>
+                                    type="button">See all</button> --}}
                             </div>
                         </div>
                         <div class="flex justify-center w-full p-3 h-80">
@@ -139,7 +139,7 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: '# of Votes',
+                        label: '# of User Counts',
                         data: userCounts,
                         borderWidth: 1
                     }]
@@ -160,7 +160,7 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: '# of Votes',
+                        label: '# of Transition Count',
                         data: transactionCounts,
                         borderWidth: 1
                     }]
