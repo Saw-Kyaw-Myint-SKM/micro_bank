@@ -6,8 +6,8 @@
     </x-slot>
     <div style="background-image: url('{{ asset('images/wallet_transfer.png') }}');"
         class="bg-no-repeat bg-center bg-cover w-full md:h-[92vh] h-[99vh] no-scrollf">
-        <div class="pt-28 pb-5" x-data="transitionHistory">
-            <div class="max-w-xl mx-auto sm:px-6 lg:px-12 mb-4">
+        <div class="pt-28 pb-5 h-full overflow-y-auto" x-data="transitionHistory">
+            <div class="max-w-xl mx-auto sm:px-6 lg:px-12 mb-4 ">
                 <div class="bg-gray-100">
                     <div class="bg-white p-6  md:mx-auto">
                         <svg viewBox="0 0 24 24" class="text-green-600 w-16 h-16 mx-auto my-6">
@@ -19,7 +19,7 @@
                             <div class="text-center">
                                 <h3 class="md:text-xl text-base text-gray-600 text-center">Payment Successful!
                                 </h3>
-                                <p class="text-gray-700 font-bold mb-3   font-serif text-3xl">
+                                <p class="text-gray-700 font-bold mb-3 text-3xl">
                                     {{ $transitionHistory->amount }}
                                     Ks
                                 </p>

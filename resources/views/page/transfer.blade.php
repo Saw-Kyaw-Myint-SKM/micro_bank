@@ -2,7 +2,7 @@
     <div x-data="transferPage">
         <div
             class="bg-[url('https://miro.medium.com/v2/resize:fit:1400/1*MuqWhynTeTQCSQpNcfbA4Q.png')] bg-no-repeat bg-center bg-cover w-full h-[100vh] ">
-            <div class="pt-52">
+            <div class="pt-52 h-[90vh] overflow-y-auto">
                 <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 px-2">
                     <template x-if="formProcessing">
                         <div class="inset-0 bg-gray-800 bg-opacity-60 fixed flex w-full h-full items-center justify-center duration-300 transition-opacity"

@@ -43,13 +43,13 @@ class UserFactory extends Factory
     private function generateMyanmarPhoneNumber()
     {
         // Myanmar country code
-        $countryCode = '+95';
+        $countryCode = '09';
 
         // Operator code (e.g., 9 for Telenor, 7 for MPT, etc.)
         $operatorCode = $this->faker->randomElement(['9', '7', '8', '1']);
 
         // Subscriber number (7 digits for the purpose of this example)
-        $subscriberNumber = $this->faker->numberBetween(1000000, 9999999);
+        $subscriberNumber = $this->faker->numberBetween(10000000, 99999999);
 
         return $countryCode . $operatorCode . $subscriberNumber;
     }

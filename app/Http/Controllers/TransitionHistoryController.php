@@ -116,6 +116,10 @@ class TransitionHistoryController extends Controller
             'amount' => $user->amount - $transition->amount,
         ]);
 
+        $toUser->update([
+            'amount' => $toUser->amount + $transition->amount,
+        ]);
+
         return response()->json([
             'transition' => $transition,
             'message' => 'Success Transition',
