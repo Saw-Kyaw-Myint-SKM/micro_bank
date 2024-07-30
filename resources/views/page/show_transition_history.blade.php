@@ -85,10 +85,18 @@
                                 </div>
                             </div>
                             <div class="py-6 text-center">
-                                <a href="{{ route('platform') }}"
-                                    class="px-10 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2">
-                                    GO BACK
-                                </a>
+                                @if (auth()->user()->role == 0)
+                                    <a href="{{ route('dashboard') }}"
+                                        class="px-10 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2">
+                                        GO BACK
+                                    </a>
+                                @endif
+                                @if (auth()->user()->role == 1)
+                                    <a href="{{ route('platform') }}"
+                                        class="px-10 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2">
+                                        GO BACK
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>
