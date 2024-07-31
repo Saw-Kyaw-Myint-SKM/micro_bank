@@ -53,12 +53,6 @@ class DashboardController extends Controller
             $transactionCounts[] = $transactionData[$month] ?? 0;
             $current->addMonth();
         }
-        // for ($i = 4; $i >= 0; $i--) {
-        //     $month = Carbon::now()->subMonths($i)->format('Y-m');
-        //     $monthNames[] = Carbon::now()->subMonths($i)->format('F');
-
-        // }
-        // dd($monthNames);
         $cardStart = Carbon::now()->startOfMonth();
         $cardEnd = Carbon::now()->endOfMonth();
 

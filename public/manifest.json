@@ -1,17 +1,17 @@
 {
     "name": "Micro Bank",
-    "short_name": "Micro Bank",
-    "start_url": "/",
-    "background_color": "#3b82f6",
-    "description": "Bank Management System",
-    "display": "standalone",
-    "theme_color": "#3b82f6",
-    "id": "?homescreen=1",
+    "short_name": "LPT",
+    "start_url": "/index.php",
+    "background_color": "#6777ef",
+    "description": "Bank Transition System",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
     "icons": [
         {
             "src": "/images/logo/micro_bank.jpg",
             "sizes": "1024x1024",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ]
 }
