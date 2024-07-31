@@ -43,19 +43,22 @@ class DashboardController extends Controller
         // Initialize the arrays for storing month names and user counts
         $monthNames = [];
         $userCounts = [];
-        for ($i = 4; $i >= 0; $i--) {
-            $month = Carbon::now()->subMonths($i)->format('Y-m');
-            $monthNames[] = Carbon::now()->subMonths($i)->format('F');
-            $userCounts[] = $userData[$month] ?? 0;
-        }
-
         $transactionCounts = [];
-        for ($i = 4; $i >= 0; $i--) {
-            $month = Carbon::now()->subMonths($i)->format('Y-m');
-            $monthNames[] = Carbon::now()->subMonths($i)->format('F');
-            $transactionCounts[] = $transactionData[$month] ?? 0;
-        }
+        $current = Carbon::now()->subMonths(4)->startOfMonth();
 
+        while ($current <= Carbon::now()->endOfMonth()) {
+            $month = $current->format('Y-m');
+            $monthNames[] = $current->format('F');
+            $userCounts[] = $userData[$month] ?? 0;
+            $transactionCounts[] = $transactionData[$month] ?? 0;
+            $current->addMonth();
+        }
+        // for ($i = 4; $i >= 0; $i--) {
+        //     $month = Carbon::now()->subMonths($i)->format('Y-m');
+        //     $monthNames[] = Carbon::now()->subMonths($i)->format('F');
+
+        // }
+        // dd($monthNames);
         $cardStart = Carbon::now()->startOfMonth();
         $cardEnd = Carbon::now()->endOfMonth();
 
